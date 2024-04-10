@@ -15,11 +15,11 @@ long calcula_fatorial(int valor)
     return resultado;
 }
 
-double calcula_euler()
+double calcula_euler(int precisao)
 {
     double euler_valor_encontrado = 0.0;
 
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < precisao; i++)
     {
         euler_valor_encontrado += (pow(1, i) / calcula_fatorial(i));
     }
@@ -31,18 +31,24 @@ int main(int argc, char const *argv[])
 {
     const double euler_valor_real = exp(1);
     printf("Valor real de Euler: %lf\n", euler_valor_real);
+    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
 
     // long teste_fatorial = calcula_fatorial(5);
     // printf("Teste fatorial: %ld\n", teste_fatorial);
 
-    const double euler_valor_encontrado = calcula_euler();
-    printf("Valor encontrado Euler: %lf\n", euler_valor_encontrado);
+    for (int i = 10; i >= 0; i--)
+    {
+        printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-Precisao: %d=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n",i);
 
-    const double erro_absoluto = euler_valor_real - euler_valor_encontrado;
-    printf("Erro absoluto: %lf\n", erro_absoluto);
+        const double euler_valor_encontrado = calcula_euler(i);
+        printf("Valor encontrado Euler: %lf\n", euler_valor_encontrado);
 
-    const double erro_relativo = (euler_valor_real - euler_valor_encontrado)/euler_valor_real;
-    printf("Erro relativo: %lf\n", erro_absoluto);
+        const double erro_absoluto = euler_valor_real - euler_valor_encontrado;
+        printf("Erro absoluto: %lf\n", erro_absoluto);
+
+        const double erro_relativo = (euler_valor_real - euler_valor_encontrado) / euler_valor_real;
+        printf("Erro relativo: %lf\n", erro_absoluto);
+    }
 
     return 0;
 }
