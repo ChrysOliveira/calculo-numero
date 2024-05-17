@@ -1,5 +1,4 @@
 // A constante de Euler eh muito usada no BCC, geralmente a vemos no formato e^x. Nesse programa nos queremos descobrir o valor de e, ou seja, o valor de e quando x==1. Para isso, devemos ter em mente que o numero de euler eh igual ao somatorio de n=o ate +inf de x^n/n! (sendo x==1)
-#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
